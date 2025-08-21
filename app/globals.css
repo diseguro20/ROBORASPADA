@@ -1,0 +1,305 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match RobôBolada design brief */
+  --background: #1a1a1a; /* Soft Black */
+  --foreground: #ffffff; /* White */
+  --card: #1a1a1a; /* Soft Black */
+  --card-foreground: #ffffff; /* White */
+  --popover: #1a1a1a; /* Soft Black */
+  --popover-foreground: #ffffff; /* White */
+  --primary: #1db954; /* Green */
+  --primary-foreground: #ffffff; /* White */
+  --secondary: #ffd700; /* Yellow */
+  --secondary-foreground: #1a1a1a; /* Soft Black */
+  --muted: #2a2a2a; /* Darker Gray */
+  --muted-foreground: #888888; /* Medium Gray */
+  --accent: #ffd700; /* Yellow */
+  --accent-foreground: #1a1a1a; /* Soft Black */
+  --destructive: #e53e3e; /* Red for warnings */
+  --destructive-foreground: #ffffff; /* White */
+  --border: #333333; /* Dark Gray Border */
+  --input: #2a2a2a; /* Dark Gray */
+  --ring: #1db954; /* Green */
+  --chart-1: #1db954; /* Green */
+  --chart-2: #ffd700; /* Yellow */
+  --chart-3: #4b5563; /* Gray */
+  --chart-4: #6366f1; /* Blue */
+  --chart-5: #10b981; /* Emerald */
+  --radius: 0.5rem; /* For rounded corners */
+  --sidebar: #1a1a1a; /* Soft Black */
+  --sidebar-foreground: #ffffff; /* White */
+  --sidebar-primary: #1db954; /* Green */
+  --sidebar-primary-foreground: #ffffff; /* White */
+  --sidebar-accent: #ffd700; /* Yellow */
+  --sidebar-accent-foreground: #1a1a1a; /* Soft Black */
+  --sidebar-border: #333333; /* Dark Gray Border */
+  --sidebar-ring: #1db954; /* Green */
+}
+
+.dark {
+  /* Dark mode uses same colors as main theme for consistency */
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #1db954;
+  --primary-foreground: #ffffff;
+  --secondary: #ffd700;
+  --secondary-foreground: #1a1a1a;
+  --muted: #2a2a2a;
+  --muted-foreground: #888888;
+  --accent: #ffd700;
+  --accent-foreground: #1a1a1a;
+  --destructive: #e53e3e;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #1db954;
+  --chart-1: #1db954;
+  --chart-2: #ffd700;
+  --chart-3: #4b5563;
+  --chart-4: #6366f1;
+  --chart-5: #10b981;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1db954;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffd700;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #333333;
+  --sidebar-ring: #1db954;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Adding money particle and snake border animations for mobile */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) translateX(-5px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-30px) translateX(15px) rotate(270deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-5px) translateX(5px) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.15;
+  }
+  33% {
+    transform: translateY(15px) translateX(-10px) rotate(-120deg);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translateY(-25px) translateX(8px) rotate(-240deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-5px) translateX(-3px) rotate(-360deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes float-diagonal {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translateY(-15px) translateX(8px) rotate(90deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-30px) translateX(15px) rotate(180deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(-20px) translateX(10px) rotate(270deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-5px) translateX(3px) rotate(360deg);
+    opacity: 0.25;
+  }
+}
+
+@keyframes snake-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse linear infinite;
+}
+
+.animate-float-diagonal {
+  animation: float-diagonal linear infinite;
+}
+
+/* Snake border animations with proper green glow effect for mobile only */
+@media (max-width: 767px) {
+  .animate-snake-border {
+    position: relative;
+    z-index: 1;
+  }
+
+  .animate-snake-border::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      transparent,
+      transparent,
+      rgba(34, 197, 94, 0.8),
+      rgba(34, 197, 94, 1),
+      rgba(34, 197, 94, 0.8),
+      transparent,
+      transparent,
+      transparent
+    );
+    background-size: 300% 300%;
+    border-radius: inherit;
+    animation: snake-border 2s linear infinite;
+    z-index: -1;
+  }
+
+  .animate-snake-border-outline {
+    position: relative;
+    z-index: 1;
+  }
+
+  .animate-snake-border-outline::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      transparent,
+      transparent,
+      rgba(34, 197, 94, 0.6),
+      rgba(34, 197, 94, 0.9),
+      rgba(34, 197, 94, 0.6),
+      transparent,
+      transparent,
+      transparent
+    );
+    background-size: 300% 300%;
+    border-radius: inherit;
+    animation: snake-border 2.5s linear infinite;
+    z-index: -1;
+  }
+
+  .animate-snake-border-secondary {
+    position: relative;
+    z-index: 1;
+  }
+
+  .animate-snake-border-secondary::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      transparent,
+      transparent,
+      rgba(34, 197, 94, 0.7),
+      rgba(34, 197, 94, 1),
+      rgba(34, 197, 94, 0.7),
+      transparent,
+      transparent,
+      transparent
+    );
+    background-size: 300% 300%;
+    border-radius: inherit;
+    animation: snake-border 2.2s linear infinite;
+    z-index: -1;
+  }
+}
